@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Protected Page</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 40px;
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+    #protectedContent {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="password"] {
+      padding: 10px;
+      width: 200px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Password to Continue</h2>
+  <input type="password" id="pw" placeholder="Password">
+  <br>
+  <button onclick="checkPw()">Submit</button>
+
+  <div id="protectedContent">
+    <h3>Welcome!</h3>
+    <p>This is the protected content of the page.</p>
+  </div>
+
+  <script>
+    function checkPw() {
+      var pw = document.getElementById("pw").value;
+      if (pw === "letmein") {
+        document.getElementById("protectedContent").style.display = "block";
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+  </script>
+
+</body>
+</html>
